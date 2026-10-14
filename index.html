@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PinkHome — Wujudkan Rumah Impianmu</title>
+<style>rumah baruu
+  * { margin:0; padding:0; box-sizing:border-box; font-family: 'Segoe UI', Poppins, Arial, sans-serif; }
+  :root{
+    --pink-900:#a4134d;
+    --pink-700:#d81b60;
+    --pink-500:#ff4d8d;
+    --pink-400:#ff6fa0;
+    --pink-200:#ffb3cd;
+    --pink-100:#ffe4ef;
+    --pink-50:#fff5f8;
+  }
+  body{ background:var(--pink-50); color:#4a2336; overflow-x:hidden; }
+  nav{
+    position:sticky; top:0; z-index:100;
+    display:flex; justify-content:space-between; align-items:center;
+    padding:16px 5%;
+    background:rgba(255,255,255,.85);
+    backdrop-filter:blur(12px);
+    border-bottom:2px solid var(--pink-100);
+  }
+  .logo{ font-weight:900; font-size:26px; color:var(--pink-700); letter-spacing:-.5px; }
+  .logo span{ color:var(--pink-500); }
+  .nav-links{ display:flex; gap:28px; }
+  .nav-links a{ text-decoration:none; color:#6b3450; font-weight:600; font-size:15px; }
+  .nav-links a:hover{ color:var(--pink-500); }
+  .btn{
+    background:linear-gradient(135deg, var(--pink-500), var(--pink-700));
+    color:white; border:none; padding:12px 26px; border-radius:100px;
+    font-weight:700; cursor:pointer; text-decoration:none; display:inline-block;
+    box-shadow:0 8px 20px rgba(255,77,141,.35);
+    transition:.3s;
+  }
+  .btn:hover{ transform:translateY(-2px); box-shadow:0 12px 28px rgba(255,77,141,.45); }
+  .btn-outline{
+    background:white; color:var(--pink-700); border:2px solid var(--pink-200);
+    box-shadow:none;
+  }
+
+  /* HERO */
+  .hero{
+    display:grid; grid-template-columns:1.05fr .95fr;
+    align-items:center; gap:40px;
+    padding:60px 5% 80px;
+    background: radial-gradient(800px 500px at 10% 10%, #ffd6e6 0%, transparent 60%),
+                radial-gradient(700px 500px at 90% 20%, #ffc2d9 0%, transparent 60%),
+                linear-gradient(180deg, #fff5f8 0%, #ffe4ef 100%);
+    position:relative; overflow:hidden;
+  }
+  .badge{
+    display:inline-flex; align-items:center; gap:8px;
+    background:white; border:1px solid var(--pink-200);
+    padding:8px 16px; border-radius:100px; font-size:13px; font-weight:700; color:var(--pink-700);
+    margin-bottom:18px;
+  }
+  .hero h1{ font-size:56px; line-height:1.02; letter-spacing:-2px; color:#3d1026; }
+  .hero h1 em{ font-style:normal; background:linear-gradient(90deg, #ff4d8d, #a4134d); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+  .hero p{ margin:20px 0 30px; font-size:17px; line-height:1.7; color:#7a4a5e; max-width:520px; }
+  .hero-actions{ display:flex; gap:14px; flex-wrap:wrap; }
+  .stats{ display:flex; gap:32px; margin-top:36px; }
+  .stats div strong{ font-size:26px; color:#3d1026; display:block; }
+  .stats div span{ font-size:13px; color:#8a5a6e; font-weight:600; }
+
+  .hero-visual{ position:relative; }
+  .main-img{
+    width:100%; height:520px; object-fit:cover; border-radius:32px;
+    border:8px solid white;
+    box-shadow:0 30px 60px rgba(164,19,77,.25);
+    transform:rotate(1.5deg);
+  }
+  .float-card{
+    position:absolute; background:white; border-radius:20px; padding:14px 16px;
+    box-shadow:0 15px 40px rgba(0,0,0,.12);
+    display:flex; gap:12px; align-items:center;
+    animation:float 3.5s ease-in-out infinite;
+  }
+  .float-1{ top:28px; left:-30px; }
+  .float-2{ bottom:28px; right:-10px; animation-delay:1.2s; }
+  .float-card img{ width:52px; height:52px; border-radius:14px; object-fit:cover; }
+  .float-card strong{ font-size:14px; display:block; }
+  .float-card small{ font-size:12px; color:#8a5a6e; }
+  @keyframes float{ 0%,100%{ transform:translateY(0)} 50%{ transform:translateY(-10px)} }
+
+  .blob{
+    position:absolute; border-radius:50%; filter:blur(1px); opacity:.5; z-index:0;
+  }
+
+  /* MARQUEE */
+  .marquee{ background:var(--pink-700); color:white; padding:14px 0; overflow:hidden; white-space:nowrap; font-weight:800; letter-spacing:1px; }
+  .marquee span{ display:inline-block; padding:0 28px; animation:slide 18s linear infinite; }
+  @keyframes slide{ from{ transform:translateX(0)} to{ transform:translateX(-50%)} }
+
+  /* SECTION */
+  section{ padding:80px 5%; }
+  .section-title{ text-align:center; max-width:620px; margin:0 auto 48px; }
+  .section-title h2{ font-size:38px; letter-spacing:-1px; color:#3d1026; }
+  .section-title h2 span{ color:var(--pink-500); }
+  .section-title p{ color:#8a5a6e; margin-top:12px; line-height:1.6; }
+
+  .features{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  .card{
+    background:white; border-radius:28px; padding:30px; border:1px solid #ffd6e6;
+    transition:.3s;
+  }
+  .card:hover{ transform:translateY(-8px); box-shadow:0 20px 50px rgba(255,77,141,.18); }
+  .icon{ width:60px; height:60px; border-radius:18px; display:grid; place-items:center; font-size:28px; margin-bottom:18px; background:var(--pink-100); }
+  .card h3{ margin-bottom:10px; font-size:20px; }
+  .card p{ color:#7a4a5e; line-height:1.6; font-size:15px; }
+
+  /* GALERI */
+  #galeri{ background:white; }
+  .gallery{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  .gallery-item{ position:relative; border-radius:24px; overflow:hidden; height:320px; group:true; }
+  .gallery-item img{ width:100%; height:100%; object-fit:cover; transition:.5s; }
+  .gallery-item:hover img{ transform:scale(1.08); }
+  .gallery-label{
+    position:absolute; bottom:16px; left:16px; right:16px;
+    background:rgba(255,255,255,.92); backdrop-filter:blur(8px);
+    border-radius:16px; padding:12px 16px; display:flex; justify-content:space-between; align-items:center;
+  }
+  .gallery-label strong{ font-size:15px; }
+  .gallery-label span{ background:var(--pink-500); color:white; font-size:12px; font-weight:800; padding:6px 12px; border-radius:100px; }
+
+  /* HARGA */
+  .pricing{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  .price-card{ background:white; border-radius:28px; overflow:hidden; border:2px solid #ffe4ef; }
+  .price-card.featured{ border-color:var(--pink-500); transform:scale(1.03); box-shadow:0 25px 60px rgba(216,27,96,.2); }
+  .price-card img{ width:100%; height:210px; object-fit:cover; }
+  .price-body{ padding:26px; }
+  .price-body h3{ font-size:20px; }
+  .price{ font-size:30px; font-weight:900; color:var(--pink-700); margin:10px 0; }
+  .price small{ font-size:14px; color:#8a5a6e; font-weight:500; }
+  .price-body ul{ list-style:none; margin:18px 0 22px; display:grid; gap:10px; color:#5e3a4a; font-size:14px; }
+  .price-body ul li::before{ content:'💗 '; }
+
+  /* TESTIMONI */
+  #testimoni{ background:linear-gradient(180deg, #fff5f8, #ffd6e6); }
+  .testi-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  .testi{ background:white; border-radius:24px; padding:26px; }
+  .testi p{ font-style:italic; line-height:1.6; color:#5e3a4a; margin:14px 0 18px; }
+  .user{ display:flex; gap:12px; align-items:center; }
+  .user img{ width:48px; height:48px; border-radius:50%; object-fit:cover; border:2px solid var(--pink-200); }
+
+  /* CTA */
+  .cta{
+    margin:0 5% 80px; background:linear-gradient(135deg, #ff4d8d 0%, #a4134d 100%);
+    border-radius:36px; padding:60px; color:white; display:grid; grid-template-columns:1.2fr .8fr;
+    align-items:center; gap:30px; position:relative; overflow:hidden;
+  }
+  .cta::after{ content:'🏠'; position:absolute; font-size:220px; right:-20px; bottom:-40px; opacity:.15; }
+  .cta h2{ font-size:42px; line-height:1.1; letter-spacing:-1px; }
+  .cta p{ margin:16px 0 28px; opacity:.9; line-height:1.6; }
+  .cta img{ width:100%; height:320px; object-fit:cover; border-radius:24px; border:6px solid rgba(255,255,255,.4); position:relative; z-index:1; }
+  .btn-white{ background:white; color:var(--pink-700); }
+
+  /* SEMUA RUMAH JADI WARNA PINK */
+  .main-img, .gallery-item img, .price-card img, .cta img, .float-card img{
+    filter:sepia(.55) saturate(4.2) hue-rotate(292deg) brightness(1.04) contrast(.96);
+  }
+  .gallery-item::after{
+    content:''; position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(255,111,160,.38) 0%, rgba(164,19,77,.38) 100%);
+    mix-blend-mode:multiply; pointer-events:none;
+  }
+  .price-card .pink-wrap, .cta .pink-wrap, .hero-visual .pink-wrap{ position:relative; display:block; }
+  .price-card .pink-wrap::after, .cta .pink-wrap::after, .hero-visual .pink-wrap::after{
+    content:''; position:absolute; inset:0; border-radius:inherit;
+    background:linear-gradient(180deg, rgba(255,111,160,.28), rgba(164,19,77,.30));
+    mix-blend-mode:multiply; pointer-events:none;
+  }
+  .hero-visual .pink-wrap{ border-radius:32px; display:block; }
+  .hero-visual .pink-wrap::after{ border-radius:32px; }
+  .main-img{ border:8px solid #ffc2d9; display:block; }
+
+  footer{ background:#2d0a1b; color:#ffb3cd; padding:50px 5% 30px; }
+  .footer-grid{ display:grid; grid-template-columns:1.5fr 1fr 1fr 1fr; gap:30px; margin-bottom:30px; }
+  footer h4{ color:white; margin-bottom:14px; }
+  footer a{ color:#ffb3cd; text-decoration:none; display:block; margin:8px 0; font-size:14px; }
+  .copyright{ border-top:1px solid rgba(255,255,255,.15); padding-top:20px; text-align:center; font-size:13px; }
+
+  @media(max-width:900px){
+    .hero, .cta{ grid-template-columns:1fr; }
+    .hero h1{ font-size:40px; }
+    .main-img{ height:360px; }
+    .float-1{ left:10px; } .float-2{ right:10px; }
+    .features, .gallery, .pricing, .testi-grid, .footer-grid{ grid-template-columns:1fr; }
+    .nav-links{ display:none; }
+    .cta{ padding:36px 26px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Pink<span>Home</span> 🏡</div>
+  <div class="nav-links">
+    <a href="#beranda">Beranda</a>
+    <a href="#keunggulan">Keunggulan</a>
+    <a href="#galeri">Galeri Rumah</a>
+    <a href="#harga">Harga</a>
+    <a href="#testimoni">Testimoni</a>
+  </div>
+  <a href="#kontak" class="btn">Hubungi Kami</a>
+</nav>
+
+<header class="hero" id="beranda">
+  <div>
+    <div class="badge">✨ Promo Spesial — DP 0% Bulan Ini!</div>
+    <h1>Wujudkan <em>Rumah Impian</em> Penuh Cinta & Kenyamanan</h1>
+    <p>PinkHome menghadirkan hunian modern, cantik, dan nyaman dengan nuansa hangat. Lokasi strategis, desain estetik pink yang manis, dan fasilitas lengkap untuk keluarga bahagia.</p>
+    <div class="hero-actions">
+      <a href="#galeri" class="btn">Lihat Rumah 💕</a>
+      <a href="#harga" class="btn btn-outline">Cek Harga</a>
+    </div>
+    <div class="stats">
+      <div><strong>2.500+</strong><span>Unit Terjual</span></div>
+      <div><strong>15+</strong><span>Tahun Pengalaman</span></div>
+      <div><strong>4.9 ★</strong><span>Rating Pembeli</span></div>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="pink-wrap"><img class="main-img" src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=900&q=80&auto=format&fit=crop" alt="Rumah pink cantik modern" /></div>
+    <div class="float-card float-1">
+      <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=200&q=80&auto=format&fit=crop" alt="mini house" />
+      <div><strong>Cluster Sakura 🌸</strong><small>Mulai Rp 450 Jt-an</small></div>
+    </div>
+    <div class="float-card float-2">
+      <div style="font-size:32px">💖</div>
+      <div><strong>100% Aman & SHM</strong><small>Sertifikat Hak Milik</small></div>
+    </div>
+  </div>
+</header>
+
+<div class="marquee">
+  <span>🌸 GRATIS BIAYA NOTARIS 🌸 GRATIS PAGAR CANTIK 🌸 BONUS FURNITURE PINK 🌸 CICILAN RINGAN MULAI 2 JUTAAN 🌸 GRATIS BIAYA NOTARIS 🌸 GRATIS PAGAR CANTIK 🌸 BONUS FURNITURE PINK 🌸 CICILAN RINGAN MULAI 2 JUTAAN 🌸</span>
+</div>
+
+<section id="keunggulan">
+  <div class="section-title">
+    <h2>Kenapa Pilih <span>PinkHome?</span></h2>
+    <p>Kami bukan sekadar membangun rumah, kami membangun tempat penuh cinta untuk tumbuh bersama keluarga.</p>
+  </div>
+  <div class="features">
+    <div class="card">
+      <div class="icon">🏠</div>
+      <h3>Desain Estetik Modern</h3>
+      <p>Rumah dengan sentuhan warna pink pastel yang manis, instagramable, dan tetap elegan. Didesain oleh arsitek terbaik.</p>
+    </div>
+    <div class="card">
+      <div class="icon">📍</div>
+      <h3>Lokasi Super Strategis</h3>
+      <p>5 menit ke mall, sekolah favorit, dan rumah sakit. Akses tol langsung, bebas banjir dan aman 24 jam.</p>
+    </div>
+    <div class="card">
+      <div class="icon">💰</div>
+      <h3>Harga Bersahabat</h3>
+      <p>DP 0%, cicilan mulai 2 jutaan, bisa KPR semua bank. Bonus furniture dan bebas biaya surat-surat.</p>
+    </div>
+  </div>
+</section>
+
+<section id="galeri">
+  <div class="section-title">
+    <h2>Galeri <span>Rumah Cantik</span> Kami</h2>
+    <p>Pilih tipe favoritmu — semua unit cantik, terang, dan siap huni.</p>
+  </div>
+  <div class="gallery">
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80&auto=format&fit=crop" alt="Rumah mewah malam hari" />
+      <div class="gallery-label"><strong>Tipe Sakura — 45/90</strong><span>Rp 450 Jt</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80&auto=format&fit=crop" alt="Rumah modern minimalis" />
+      <div class="gallery-label"><strong>Tipe Rose — 60/120</strong><span>Rp 680 Jt</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80&auto=format&fit=crop" alt="Rumah putih estetik" />
+      <div class="gallery-label"><strong>Tipe Peony — 80/150</strong><span>Rp 950 Jt</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80&auto=format&fit=crop" alt="Interior pink" />
+      <div class="gallery-label"><strong>Interior Blush Pink</strong><span>Bonus</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&q=80&auto=format&fit=crop" alt="Ruang tamu" />
+      <div class="gallery-label"><strong>Living Room Aesthetic</strong><span>Full Furnish</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800&q=80&auto=format&fit=crop" alt="Kamar tidur pink" />
+      <div class="gallery-label"><strong>Kamar Tidur Cozy</strong><span>Best Seller</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="harga">
+  <div class="section-title">
+    <h2>Daftar <span>Harga Spesial</span></h2>
+    <p>Harga transparan, tanpa biaya tersembunyi. Sudah termasuk SHM, IMB, dan pajak.</p>
+  </div>
+  <div class="pricing">
+    <div class="price-card">
+      <div class="pink-wrap" style="border-radius:28px 28px 0 0;overflow:hidden"><img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&q=80&auto=format&fit=crop" alt="Rumah pink Tipe Sakura" /></div>
+      <div class="price-body">
+        <h3>🌸 Tipe Sakura</h3>
+        <div class="price">Rp 450 Jt <small>/ 45m²</small></div>
+        <ul><li>2 Kamar Tidur</li><li>1 Kamar Mandi</li><li>Carport + Taman Pink</li><li>Gratis Kanopi</li></ul>
+        <a href="#kontak" class="btn btn-outline" style="width:100%;text-align:center">Pilih Sakura</a>
+      </div>
+    </div>
+    <div class="price-card featured">
+      <div class="pink-wrap" style="border-radius:26px 26px 0 0;overflow:hidden"><img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800&q=80&auto=format&fit=crop" alt="Rumah pink Tipe Rose" /></div>
+      <div class="price-body">
+        <h3>🌹 Tipe Rose — Terlaris!</h3>
+        <div class="price">Rp 680 Jt <small>/ 60m²</small></div>
+        <ul><li>3 Kamar Tidur</li><li>2 Kamar Mandi</li><li>Dapur + Ruang Keluarga</li><li>Bonus Full Furniture Pink</li></ul>
+        <a href="#kontak" class="btn" style="width:100%;text-align:center">Pilih Rose 💖</a>
+      </div>
+    </div>
+    <div class="price-card">
+      <div class="pink-wrap" style="border-radius:28px 28px 0 0;overflow:hidden"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80&auto=format&fit=crop" alt="Rumah pink Tipe Peony" /></div>
+      <div class="price-body">
+        <h3>🌷 Tipe Peony</h3>
+        <div class="price">Rp 950 Jt <small>/ 80m²</small></div>
+        <ul><li>4 Kamar Tidur</li><li>3 Kamar Mandi</li><li>2 Lantai + Balkon</li><li>Kolam Renang Mini</li></ul>
+        <a href="#kontak" class="btn btn-outline" style="width:100%;text-align:center">Pilih Peony</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="testimoni">
+  <div class="section-title">
+    <h2>Kata Mereka yang Sudah <span>Tinggal Bahagia</span></h2>
+  </div>
+  <div class="testi-grid">
+    <div class="testi">
+      <div>⭐⭐⭐⭐⭐</div>
+      <p>"Rumahnya cantik banget! Warna pink-nya lembut, anak saya suka banget. Proses KPR dibantu sampai acc!"</p>
+      <div class="user"><img src="https://i.pravatar.cc/100?img=47" alt="user" /><div><strong>Sarah Amelia</strong><br/><small>Ibu Rumah Tangga, Cluster Sakura</small></div></div>
+    </div>
+    <div class="testi">
+      <div>⭐⭐⭐⭐⭐</div>
+      <p>"Awalnya ragu karena warna pink, ternyata elegan banget pas lihat langsung. Tetangga ramah, lingkungan aman."</p>
+      <div class="user"><img src="https://i.pravatar.cc/100?img=12" alt="user" /><div><strong>Budi Santoso</strong><br/><small>Karyawan, Cluster Rose</small></div></div>
+    </div>
+    <div class="testi">
+      <div>⭐⭐⭐⭐⭐</div>
+      <p>"Investasi terbaik! Beli 2 tahun lalu 550jt sekarang sudah 800jt. Desainnya timeless dan terawat."</p>
+      <div class="user"><img src="https://i.pravatar.cc/100?img=32" alt="user" /><div><strong>Rina Kartika</strong><br/><small>Investor, Cluster Peony</small></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="cta" id="kontak">
+  <div>
+    <h2>Siap Punya Rumah Pink Impianmu? 💕</h2>
+    <p>Konsultasi GRATIS + survei lokasi GRATIS. Tim kami siap membantu via WhatsApp setiap hari 08.00 – 20.00 WIB.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap">
+      <a href="https://wa.me/6281234567890" class="btn btn-white">Chat WhatsApp 📱</a>
+      <a href="tel:0211234567" class="btn" style="background:#2d0a1b">📞 (021) 123-4567</a>
+    </div>
+    <p style="margin-top:18px;font-size:13px;opacity:.85">📍 Jl. Mawar Pink No. 88, Jakarta Selatan | ✉️ halo@pinkhome.id</p>
+  </div>
+  <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&q=80&auto=format&fit=crop" alt="Rumah pink keluarga bahagia" style="width:100%;height:320px;object-fit:cover;border-radius:24px;border:6px solid rgba(255,255,255,.4);position:relative;z-index:1;filter:sepia(.55) saturate(4.2) hue-rotate(292deg) brightness(1.04)" />
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <h4>PinkHome 🏡</h4>
+      <p style="font-size:14px;line-height:1.6">Membangun hunian cantik & nyaman sejak 2009. PT PinkHome Properti Sejahtera — Terpercaya, Amanah, Penuh Cinta.</p>
+    </div>
+    <div><h4>Menu</h4><a href="#beranda">Beranda</a><a href="#galeri">Galeri</a><a href="#harga">Harga</a><a href="#testimoni">Testimoni</a></div>
+    <div><h4>Tipe Rumah</h4><a href="#harga">Sakura 45/90</a><a href="#harga">Rose 60/120</a><a href="#harga">Peony 80/150</a></div>
+    <div><h4>Kontak</h4><a href="#">Instagram: @pinkhome.id</a><a href="#">TikTok: @pinkhome</a><a href="#">WA: 0812-3456-7890</a></div>
+  </div>
+  <div class="copyright">© 2026 PinkHome Properti. Dibuat dengan 💖 di Indonesia.</div>
+</footer>
+
+</body>
+</html>
